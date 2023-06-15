@@ -10,4 +10,4 @@
 
 #### Ejemplo de Api:
 
-- https://www.omdbapi.com/?t=matrix&apikey=8402e0b2
+- https://www.omdbapi.com/?apikey=8402e0b2&s=matrix

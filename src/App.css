@@ -15,6 +15,10 @@ form {
   justify-content: center;
 }
 
+ul {
+  list-style: none;
+}
+
 picture {
   cursor: crosshair;
 }

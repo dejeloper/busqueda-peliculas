@@ -14,3 +14,7 @@ form {
   display: flex;
   justify-content: center;
 }
+
+picture {
+  cursor: crosshair;
+}

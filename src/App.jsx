@@ -1,6 +1,11 @@
+import { Movies } from './components/movies'
+import responseMovies from './mockups/result-by-title.json'
+
 import './App.css'
 
 const App = () => {
+  const movies = responseMovies.Search
+
   return (
     <div className='page'>
       <header>
@@ -11,7 +16,7 @@ const App = () => {
         </form>
       </header>
       <main>
-        <p>Resultados</p>
+        <Movies movies={movies} />
       </main>
     </div>
   )

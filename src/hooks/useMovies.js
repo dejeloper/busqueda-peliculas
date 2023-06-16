@@ -1,4 +1,4 @@
-import responseMovies from './mockups/result-by-title.json'
+import responseMovies from '../mockups/result-by-title.json'
 
 export const useMovies = () => {
   const movies = responseMovies.Search

@@ -3,7 +3,7 @@ import { useMovies } from './hooks/useMovies'
 import './App.css'
 
 const App = () => {
-  const { movies: mappingMovies } = useMovies()
+  const { movies } = useMovies()
 
   return (
     <div className='page'>
@@ -15,7 +15,7 @@ const App = () => {
         </form>
       </header>
       <main>
-        <Movies movies={mappingMovies} />
+        <Movies movies={movies} />
       </main>
     </div>
   )

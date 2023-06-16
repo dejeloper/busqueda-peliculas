@@ -5,11 +5,11 @@ export const ListOfMovies = ({ movies }) => {
     <ul>
       {
         movies.map(movie => (
-          <li key={movie.imdbID}>
-            <h3>{movie.Title}</h3>
-            <p>{movie.Year}</p>
+          <li key={movie.id}>
+            <h3>{movie.title}</h3>
+            <p>{movie.year}</p>
             <picture>
-              <img src={movie.Poster} alt={`Poster de la película ${movie.Title}`} title={`Poster de la película ${movie.Title}`} />
+              <img src={movie.imgUrl} alt={`Poster de la película '${movie.title}'`} title={`Poster de la película '${movie.title}'`} />
             </picture>
           </li>
         ))

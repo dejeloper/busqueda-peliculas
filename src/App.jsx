@@ -1,10 +1,9 @@
 import { Movies } from './components/movies'
-import responseMovies from './mockups/result-by-title.json'
-
+import { useMovies } from './hooks/useMovies'
 import './App.css'
 
 const App = () => {
-  const movies = responseMovies.Search
+  const { movies: mappingMovies } = useMovies()
 
   return (
     <div className='page'>
@@ -16,7 +15,7 @@ const App = () => {
         </form>
       </header>
       <main>
-        <Movies movies={movies} />
+        <Movies movies={mappingMovies} />
       </main>
     </div>
   )

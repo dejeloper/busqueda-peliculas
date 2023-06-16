@@ -1,6 +1,6 @@
 import '../App.css'
 
-export const ListOfMovies = ({ movies }) => {
+export function ListOfMovies ({ movies }) {
   return (
     <ul>
       {
@@ -18,13 +18,13 @@ export const ListOfMovies = ({ movies }) => {
   )
 }
 
-export const NoListOfMovies = () => {
+export function NoListOfMovies () {
   return (
     <p>No se encontraron peliculas para esta búsqueda</p>
   )
 }
 
-export const Movies = ({ movies }) => {
+export function Movies ({ movies }) {
   const hasMovies = movies?.length > 0
   return (
     hasMovies

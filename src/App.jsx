@@ -2,8 +2,8 @@ import { Movies } from './components/movies'
 import { useMovies } from './hooks/useMovies'
 import './App.css'
 
-const App = () => {
-  const { movies } = useMovies()
+function App () {
+  const { movies: mappingMovies } = useMovies()
 
   return (
     <div className='page'>
@@ -15,7 +15,7 @@ const App = () => {
         </form>
       </header>
       <main>
-        <Movies movies={movies} />
+        <Movies movies={mappingMovies} />
       </main>
     </div>
   )

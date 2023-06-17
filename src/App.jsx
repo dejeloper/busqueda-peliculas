@@ -1,18 +1,30 @@
 import { Movies } from './components/Movies'
-import { useMovies } from './hooks/useMovies'
+import { useMovies, useSearch } from './hooks'
 import './App.css'
 
 function App () {
+  const { search, setSearch, error } = useSearch()
   const { movies: mappingMovies } = useMovies()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
+  const handleChange = (event) => {
+    setSearch(event.target.value)
+  }
 
   return (
     <div className='page'>
       <header>
         <h1>Búsqueda de Películas</h1>
-        <form className='form'>
-          <input placeholder='Avengers, Star Wars, Matrix...' />
+        <form className='form' onSubmit={handleSubmit}>
+          <input onChange={handleChange} value={search} name='search' placeholder='Avengers, Matrix...' />
           <button type='submit'>Buscar</button>
         </form>
+        {
+          error && (<p style={{ color: 'red' }}>{error}</p>)
+        }
       </header>
       <main>
         <Movies movies={mappingMovies} />

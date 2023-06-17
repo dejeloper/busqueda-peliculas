@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function useSearch () {
   const [ search, setSearch ] = useState('')
   const [ error, setError ] = useState(null)
+  const isFirstRender = useRef(true)
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = search === ''
+      return
+    }
+
     if (search === '') {
       setError('No se puede buscar una película vacía')
       return

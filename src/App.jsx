@@ -19,7 +19,13 @@ function App () {
       <header>
         <h1>Búsqueda de Películas</h1>
         <form className='form' onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={search} name='search' placeholder='Avengers, Matrix...' />
+          <input
+            style={{
+              border: '1px solid transparent',
+              borderColor: error ? 'red' : 'transparent'
+            }}
+            onChange={handleChange} value={search} name='search' placeholder='Avengers, Matrix...'
+          />
           <button type='submit'>Buscar</button>
         </form>
         {

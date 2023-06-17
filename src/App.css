@@ -3,11 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 main {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 form {
@@ -21,6 +24,25 @@ ul {
   padding: 0;
 }
 
-picture {
-  cursor: crosshair;
+.movies {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie img,
+.movie img {
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.movie h3,
+.movie p {
+  margin: 0px;
 }

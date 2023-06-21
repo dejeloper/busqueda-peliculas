@@ -20,7 +20,7 @@ export function ListOfMovies ({ movies }) {
 
 export function NoListOfMovies () {
   return (
-    <p>No se encontraron peliculas para esta búsqueda</p>
+    <p style={{ color: 'red' }}>No se encontraron películas para esta búsqueda</p>
   )
 }
 

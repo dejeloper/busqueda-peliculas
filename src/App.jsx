@@ -4,7 +4,7 @@ import './App.css'
 
 function App () {
   const { search, setSearch, error } = useSearch()
-  const { movies, getMovies, loading } = useMovies({ search })
+  const { movies, getMovies, loading, errorSearch } = useMovies({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -31,6 +31,9 @@ function App () {
         </form>
         {
           error && (<p style={{ color: 'red' }}>{error}</p>)
+        }
+        {
+          errorSearch && (<p style={{ color: 'red' }}>{errorSearch}</p>)
         }
       </header>
       <main>

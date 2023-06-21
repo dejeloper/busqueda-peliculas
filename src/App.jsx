@@ -4,10 +4,11 @@ import './App.css'
 
 function App () {
   const { search, setSearch, error } = useSearch()
-  const { movies: mappingMovies } = useMovies()
+  const { movies, getMovies, loading } = useMovies({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    getMovies()
   }
 
   const handleChange = (event) => {
@@ -33,7 +34,11 @@ function App () {
         }
       </header>
       <main>
-        <Movies movies={mappingMovies} />
+        {
+          loading
+            ? (<p>Cargando...</p>)
+            : (<Movies movies={movies} />)
+        }
       </main>
     </div>
   )

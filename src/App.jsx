@@ -40,7 +40,7 @@ function App () {
         {
           loading
             ? <p>Cargando...</p>
-            : <Movies movies={movies} />
+            : search.length > 0 && <Movies movies={movies} />
         }
       </main>
     </div>

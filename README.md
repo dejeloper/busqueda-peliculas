@@ -1,4 +1,4 @@
-# Búsqueda de Peliculas
+# Búsqueda de Películas
 
 ### Api:
 

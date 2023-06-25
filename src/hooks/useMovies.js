@@ -14,7 +14,7 @@ export const useMovies = ({ search, sort }) => {
 
   const debounceGetMovie = useCallback(debounce(({ search }) => {
     getMovies({ search })
-  }, 800)
+  }, 500)
   , [])
 
   const getMovies = async ({ search }) => {

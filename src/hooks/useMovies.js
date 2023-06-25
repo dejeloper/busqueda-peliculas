@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { searchMovies } from '../services/movies'
+import debounce from 'just-debounce-it'
 
 export const useMovies = ({ search, sort }) => {
   const [ movies, setMovies ] = useState([])
@@ -8,8 +9,13 @@ export const useMovies = ({ search, sort }) => {
   const previousSearch = useRef(search)
 
   useEffect(() => {
-    getMovies({ search })
+    debounceGetMovie({ search })
   }, [ search ])
+
+  const debounceGetMovie = useCallback(debounce(({ search }) => {
+    getMovies({ search })
+  }, 500)
+  , [])
 
   const getMovies = async ({ search }) => {
     if (search === previousSearch.current) {

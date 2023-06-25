@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { searchMovies } from '../services/movies'
 
-export const useMovies = ({ search }) => {
+export const useMovies = ({ search, sort }) => {
   const [ movies, setMovies ] = useState([])
   const [ loading, setLoading ] = useState(false)
   const [ errorSearch, setErrorSearch ] = useState(null)
@@ -30,5 +30,11 @@ export const useMovies = ({ search }) => {
     }
   }
 
-  return { movies, getMovies, errorSearch, loading }
+  const getSortMovies = useMemo(() => {
+    return (sort && movies !== undefined)
+      ? [ ...movies ].sort((a, b) => a.title.localeCompare(b.title))
+      : movies
+  }, [ sort, movies ])
+
+  return { movies: getSortMovies, getMovies, errorSearch, loading }
 }

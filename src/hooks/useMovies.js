@@ -8,10 +8,10 @@ export const useMovies = ({ search, sort }) => {
   const previousSearch = useRef(search)
 
   useEffect(() => {
-    getMovies()
+    getMovies({ search })
   }, [ search ])
 
-  const getMovies = async () => {
+  const getMovies = async ({ search }) => {
     if (search === previousSearch.current) {
       return
     }

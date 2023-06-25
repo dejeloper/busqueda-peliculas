@@ -8,18 +8,19 @@ function App () {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    getMovies()
+    getMovies({ search })
   }
 
   const handleChange = (event) => {
-    setSearch(event.target.value)
+    const newSearch = event.target.value
+    setSearch(newSearch)
   }
 
   return (
     <div className='page'>
       <header>
         <h1>Búsqueda de Películas</h1>
-        <form className='form' onSubmit={handleSubmit}>
+        <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className='form' onSubmit={handleSubmit}>
           <input
             style={{
               border: '1px solid transparent',

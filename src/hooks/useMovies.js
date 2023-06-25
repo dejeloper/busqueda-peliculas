@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { searchMovies } from '../services/movies'
 
 export const useMovies = ({ search }) => {
@@ -7,8 +7,14 @@ export const useMovies = ({ search }) => {
   const [ errorSearch, setErrorSearch ] = useState(null)
   const previousSearch = useRef(search)
 
+  useEffect(() => {
+    getMovies()
+  }, [ search ])
+
   const getMovies = async () => {
-    if (search === previousSearch.current) return
+    if (search === previousSearch.current) {
+      return
+    }
 
     try {
       setLoading(true)
